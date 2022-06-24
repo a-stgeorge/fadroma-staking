@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["fadroma"] = [{"text":"impl <a class=\"trait\" href=\"fadroma/prelude/trait.ReadonlyStorage.html\" title=\"trait fadroma::prelude::ReadonlyStorage\">ReadonlyStorage</a> for <a class=\"struct\" href=\"fadroma/composability/tester/struct.ClonableMemoryStorage.html\" title=\"struct fadroma::composability::tester::ClonableMemoryStorage\">ClonableMemoryStorage</a>","synthetic":false,"types":["fadroma::composability::tester::ClonableMemoryStorage"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
