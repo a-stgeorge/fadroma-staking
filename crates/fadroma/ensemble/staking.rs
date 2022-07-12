@@ -143,6 +143,7 @@ impl Delegations {
     }
 
     pub fn rewards(&self, delegator: &HumanAddr) -> RewardsResponse {
+        println!("--> Rewards Query Called!");
         match self.delegators.get(delegator) {
             Some(delegations) => {
                 let mut total = 0u128;
@@ -244,7 +245,7 @@ impl Delegations {
 
                 let mut new_can_redelegate = delegation.can_redelegate.clone();
                 if delegation.can_redelegate.amount + amount.amount > delegation.amount.amount {
-                    new_can_redelegate.amount = (delegation.amount.amount - amount.amount).unwrap();
+                    new_can_redelegate.amount = (delegation.can_redelegate.amount - amount.amount).unwrap();
                 }
 
                 let new_delegation = DelegationWithUnbonding {
