@@ -143,9 +143,10 @@ impl Delegations {
     }
 
     pub fn rewards(&self, delegator: &HumanAddr) -> RewardsResponse {
-        println!("    --> Rewards Query Called!");
+        println!("--> Rewards Query Called! delegator: {:?}", delegator);
         match self.delegators.get(delegator) {
             Some(delegations) => {
+                println!("    Some delegations found: {:?}", delegations);
                 let mut total = 0u128;
                 for delegation_pair in delegations {
                     let delegation = delegation_pair.1;
@@ -159,9 +160,12 @@ impl Delegations {
                     total: vec![Coin::new(total, &self.bonded_denom)],
                 }
             },
-            None => RewardsResponse {
-                rewards: vec![],
-                total: vec![],
+            None => {
+                println!("    No delegations found...");
+                RewardsResponse {
+                    rewards: vec![],
+                    total: vec![],
+                }
             },
         }
     }

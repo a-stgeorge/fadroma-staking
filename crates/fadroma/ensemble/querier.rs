@@ -31,7 +31,6 @@ impl Querier for EnsembleQuerier {
         // NOTE: This is safe to dereference due it being 'boxed' in crate::ensemble::ContractEnsemble
         let ctx = unsafe { &*(self.ctx) };
 
-        println!("--> Query recieved! {:?}", request);
         match request {
             QueryRequest::Wasm(query) => match query {
                 WasmQuery::Smart {
@@ -99,7 +98,6 @@ impl Querier for EnsembleQuerier {
             QueryRequest::Dist(query) => match query {
                 DistQuery::Rewards { delegator } => {
                     let rewards = ctx.delegations.rewards(&delegator);
-                    println!("    Reached querier.rs Dist Query");
 
                     Ok(to_binary(&rewards))
                 },
