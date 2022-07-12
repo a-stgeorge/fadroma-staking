@@ -254,7 +254,7 @@ impl Delegations {
 
                 let mut new_can_redelegate = delegation.can_redelegate.clone();
                 if delegation.can_redelegate.amount + amount.amount > delegation.amount.amount {
-                    new_can_redelegate.amount = (delegation.can_redelegate.amount - amount.amount).unwrap();
+                    new_can_redelegate.amount = (delegation.amount.amount - amount.amount).unwrap();
                 }
 
                 let new_delegation = DelegationWithUnbonding {

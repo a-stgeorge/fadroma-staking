@@ -1,6 +1,7 @@
 use crate::prelude::*;
 use serde::{Deserialize, Serialize};
 use super::{ContractEnsemble, ContractHarness, MockDeps, MockEnv};
+use super::response::RewardsResponse;
 
 const SEND_AMOUNT: u128 = 100;
 const SEND_DENOM: &str = "uscrt";
