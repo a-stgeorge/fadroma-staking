@@ -143,7 +143,7 @@ impl Delegations {
     }
 
     pub fn rewards(&self, delegator: &HumanAddr) -> RewardsResponse {
-        println!("--> Rewards Query Called!");
+        println!("    --> Rewards Query Called!");
         match self.delegators.get(delegator) {
             Some(delegations) => {
                 let mut total = 0u128;
