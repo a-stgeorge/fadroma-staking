@@ -95,13 +95,13 @@ impl Querier for EnsembleQuerier {
                     Ok(to_binary(&ValidatorsResponse { validators: validators.to_vec() }))
                 },
             },
-            /*QueryRequest::Dist(query) => match query {
+            QueryRequest::Dist(query) => match query {
                 DistQuery::Rewards { delegator } => {
                     let rewards = ctx.delegations.rewards(&delegator);
 
                     Ok(to_binary(&rewards))
                 },
-            },*/
+            },
             _ => {
                 Ok(self.base.query(&request))
             },
