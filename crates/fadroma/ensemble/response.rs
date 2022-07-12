@@ -61,6 +61,13 @@ pub struct StakingResponse {
     pub amount: Coin,
 }
 
+// Copying struct from cosmwasm because it is not currently visible. Used in RewardsResponse
+#[derive(Clone, Debug, PartialEq)]
+pub struct ValidatorRewards {
+    pub validator_address: HumanAddr,
+    pub reward: Vec<Coin>,
+}
+
 pub struct Iter<'a> {
     responses: &'a [Response],
     index: usize,
