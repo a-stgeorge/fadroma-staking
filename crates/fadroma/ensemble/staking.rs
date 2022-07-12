@@ -143,10 +143,8 @@ impl Delegations {
     }
 
     pub fn rewards(&self, delegator: &HumanAddr) -> RewardsResponse {
-        println!("--> Rewards Query Called! delegator: {:?}", delegator);
         match self.delegators.get(delegator) {
             Some(delegations) => {
-                println!("    Some delegations found: {:?}", delegations);
                 let mut total = 0u128;
                 let mut rewards = vec![];
                 for delegation_pair in delegations {
@@ -166,7 +164,6 @@ impl Delegations {
                 }
             },
             None => {
-                println!("    No delegations found...");
                 RewardsResponse {
                     rewards: vec![],
                     total: vec![],
